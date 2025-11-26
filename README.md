@@ -62,3 +62,28 @@ Kustomize is used to simplify manifest management.
 - Ensure you have the required AWS permissions for OIDC authentication before running deployments.
 
 - Kustomize simplifies maintaining Kubernetes manifests across multiple environments (e.g., staging, production).
+
+---
+
+### Installing Monitoring Stack
+
+install prometheus stack
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --version 79.8.2
+```
+
+install loki for log database
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+
+helm install loki grafana/loki --version 6.46.0
+```
+
+install promtail for uploading application logs to loki
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+
+helm install promtail grafana/promtail --version 6.17.1
+```
