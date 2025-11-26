@@ -1,0 +1,12 @@
+resources:
+  - ../../../kustomize/base
+
+nameSuffix: -backend-js
+commonLabels:
+  app: cfx-sre-backend-js
+
+patches:
+  - path: ingress-hostname.json
+    target:
+      kind: Ingress
+      name: cfx-sre

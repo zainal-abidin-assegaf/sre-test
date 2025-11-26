@@ -14,6 +14,8 @@ spec:
       labels:
         app: cfx-sre
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: cfx-sre
           image: ghcr.io/zainal-abidin-assegaf/cfx-sre:latest

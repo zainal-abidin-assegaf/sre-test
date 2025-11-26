@@ -1,0 +1,7 @@
+[
+  {
+    "op": "add",
+    "path": "/spec/rules/0/host",
+    "value": "backend-js.staging.cfx-sre.com"
+  }
+]
