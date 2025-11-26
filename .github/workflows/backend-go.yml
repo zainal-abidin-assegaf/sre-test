@@ -28,3 +28,13 @@ jobs:
       - name: Run tests
         run: go test ./... -v
         working-directory: backend-go
+  build:
+    runs-on: ubuntu-latest
+    needs: ["test"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      
+      - name: Build Docker image
+        run: docker build -t backend-go:latest .
+        working-directory: backend-go
