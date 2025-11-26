@@ -87,3 +87,8 @@ jobs:
       working-directory: backend-go/deployment/production
       run: |
         kubectl kustomize .
+
+    - name: Validate
+      working-directory: backend-go/deployment/production
+      run: |
+        kubectl apply -k . --dry-run=client --validate=true
