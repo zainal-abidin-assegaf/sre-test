@@ -57,9 +57,9 @@ Kustomize is used to simplify manifest management.
 
 - Manifests are managed with Kustomize for environment-specific overlays and simplified deployment.
 
-- `backend-go` will have hostname `backend-go.cfx-sre.com` in production.
+- `backend-go` will use hostname `backend-go.cfx-sre.com` in production.
 
-- `backend-js` will have hostname `backend-js.cfx-sre.com` in production.
+- `backend-js` will use hostname `backend-js.cfx-sre.com` in production.
 ### Notes
 
 - Ensure you have the required AWS permissions for OIDC authentication before running deployments.
