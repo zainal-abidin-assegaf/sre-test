@@ -1,0 +1,30 @@
+name: Deploy Backend Go
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "backend-go/**"
+  pull_request:
+    paths:
+      - "backend-go/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+
+      - name: Download dependencies
+        run: go mod download
+        working-directory: backend-go
+
+      - name: Run tests
+        run: go test ./... -v
+        working-directory: backend-go
