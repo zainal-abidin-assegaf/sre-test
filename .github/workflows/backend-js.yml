@@ -22,9 +22,11 @@ jobs:
           node-version: "22"
 
       - name: Install dependencies
+        working-directory: backend-js
         run: npm install
 
       - name: Run tests
+        working-directory: backend-js
         run: npm test
 
   build:
