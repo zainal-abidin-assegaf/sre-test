@@ -61,3 +61,21 @@ jobs:
         working-directory: backend-js
         run: |
           docker push ghcr.io/${{ github.repository }}/backend-js:${{ steps.vars.outputs.SHA_SHORT }}
+
+    deploy:
+      runs-on: ubuntu-latest
+      needs: ["build-push"]
+      working-directory: backend-js/deployment/production
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - uses: imranismail/setup-kustomize@v2
+
+      - name: Edit manifest
+        run: |
+          kustomize edit set image ghcr.io/${{ github.repository }}=ghcr.io/${{ github.repository }}/backend-js:${{ steps.vars.outputs.SHA_SHORT }}
+          
+      - name: Build manifest
+        run: |
+          kubectl kustomize .

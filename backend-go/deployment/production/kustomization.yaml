@@ -1,0 +1,6 @@
+resources:
+  - ../../../kustomize/base
+
+nameSuffix: -backend-go
+commonLabels:
+  app: cfx-sre-backend-go
