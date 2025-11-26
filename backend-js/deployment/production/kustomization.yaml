@@ -1,0 +1,6 @@
+resources:
+  - ../../../kustomize/base
+
+nameSuffix: -backend-js
+commonLabels:
+  app: cfx-sre-backend-js
